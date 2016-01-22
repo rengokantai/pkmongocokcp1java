@@ -1,3 +1,6 @@
+/**
+ * Created by Hernan Y.Ke on 2016/1/22.
+ */
 import java.rmi.UnknownHostException;
 import java.util.Collection;
 import java.util.List;
@@ -13,7 +16,7 @@ import com.mongodb.client.MongoDatabase;
 /**
  * Created by Hernan Y.Ke on 2016/1/22.
  */
-public class Main {
+public class BasicOper {
     public static void main(String[] args) throws UnknownHostException{
         MongoClient client = new MongoClient("localhost",27017);
         MongoDatabase testDB = client.getDatabase("test");
@@ -34,6 +37,7 @@ public class Main {
         });
         MongoCollection<Document> col = client.getDatabase("test").getCollection("person");
         System.out.println(col.find().iterator().next());
+        client.close();
 
         //person = testDB.getCollection(collection.toString()).find();
 
